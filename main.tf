@@ -37,7 +37,7 @@ resource "google_compute_subnetwork" "private_subnet" {
   private_ip_google_access = true
 }
 
-#SECRET MANAGER test
+#SECRET MANAGER test test1
 resource "google_secret_manager_secret" "db_password" {
   secret_id = "db-password"
 
