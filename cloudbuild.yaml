@@ -1,9 +1,29 @@
 steps:
-- name: hashicorp/terraform
-  args: ["init"]
+  #Terraform Init
+  - name: "hashicorp/terraform:latest"
+    id: "terraform init"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - |
+        terraform init
 
-- name: hashicorp/terraform
-  args: ["apply", "-auto-approve"]
+  #Terraform Plan
+  - name: "hashicorp/terraform:latest"
+    id: "terraform plan"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - |
+        terraform plan -input=false -var-file=terraform.tfvars
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+  #Terraform Apply
+  - name: "hashicorp/terraform:latest"
+    id: "terraform apply"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - |
+        terraform apply -input=false -auto-approve -var-file=terraform.tfvars
+
+timeout: "1200s"
