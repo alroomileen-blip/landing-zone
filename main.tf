@@ -7,7 +7,7 @@ resource "google_project_service" "sql_admin" {
   service = "sqladmin.googleapis.com"
 }
 
-#VPC
+#VPC test1
 resource "google_compute_network" "vpc" {
   name                    = "secure-vpc"
   auto_create_subnetworks = false
