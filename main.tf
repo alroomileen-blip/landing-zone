@@ -1,4 +1,4 @@
-# ENABLE REQUIRED API
+# ENABLE REQUIRED API ttt
 resource "google_project_service" "service_networking" {
   service = "servicenetworking.googleapis.com"
 }
