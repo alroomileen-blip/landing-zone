@@ -11,3 +11,6 @@ steps:
   - |
     terraform plan -var="project_id=$PROJECT_ID" -var="db_password=$$DB_PASSWORD"
   secretEnv: ['DB_PASSWORD']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
