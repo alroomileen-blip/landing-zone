@@ -6,10 +6,14 @@ availableSecrets:
 steps:
 - name: 'hashicorp/terraform:latest'
   entrypoint: 'sh'
-  args: 
+  args:
   - '-c'
   - |
-    terraform plan -var="project_id=$PROJECT_ID" -var="db_password=$$DB_PASSWORD"
+    terraform init
+    terraform plan \
+      -var="project_id=$PROJECT_ID" \
+      -var="db_password=$$DB_PASSWORD"
+
   secretEnv: ['DB_PASSWORD']
 
 options:
